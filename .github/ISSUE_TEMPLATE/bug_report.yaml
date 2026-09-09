@@ -1,0 +1,47 @@
+name: Bug 报告
+description: 报告一个问题
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你报告问题！请填写以下信息。
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 清晰地描述你遇到的问题
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 描述如何复现这个问题
+      value: |
+        1. 运行 `./vt-asr-server`
+        2. 发送请求 `echo "test.wav" | nc -U /tmp/vt_asr.sock`
+        3. 看到错误
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志
+      description: 请粘贴相关日志
+      render: shell
+
+  - type: input
+    id: os
+    attributes:
+      label: 操作系统
+      placeholder: "Ubuntu 22.04 LTS"
+
+  - type: input
+    id: go-version
+    attributes:
+      label: Go 版本
+      placeholder: "go1.23.6"

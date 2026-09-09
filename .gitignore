@@ -1,0 +1,29 @@
+# 二进制文件
+vt-asr-server
+*.test
+
+# 日志
+*.log
+/tmp/vt_asr*.log
+
+# Socket 和 PID 文件
+/tmp/vt_asr.sock
+/tmp/vt_asr.pid
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Go
+vendor/
+
+# 模型文件（太大，不提交）
+models/
+voice-input/

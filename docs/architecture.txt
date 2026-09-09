@@ -1,0 +1,66 @@
+vt-asr Architecture
+====================
+
+Data Flow:
+----------
+
+  Microphone (Headset/Internal)
+        │
+        ▼
+  PipeWire (AEC Echo Cancellation)
+        │
+        ▼
+  WAV File (16kHz, 16bit, mono)
+        │
+        ▼
+  Unix Socket (/tmp/vt_asr.sock)
+        │
+        ▼
+  Go ASR Server (CGo + sherpa-onnx)
+        │
+        ▼
+  Text Output
+        │
+        ▼
+  Clipboard (xdotool paste)
+
+
+Components:
+-----------
+
+1. Audio Capture
+   - PipeWire captures microphone audio
+   - WebRTC AEC eliminates echo
+   - Output: WAV file
+
+2. Go ASR Server
+   - Listens on Unix socket
+   - Receives WAV file path
+   - Loads SenseVoice model via CGo
+   - Returns recognized text
+
+3. Client Integration
+   - Send WAV path via Unix socket
+   - Receive text response
+   - Paste to clipboard
+   - Type via xdotool
+
+
+Protocol:
+---------
+
+Client -> Server: WAV file path (string)
+Server -> Client: Recognized text (string)
+
+Example:
+  $ echo "/path/to/audio.wav" | nc -U /tmp/vt_asr.sock
+  开饭时间早上9点至下午5点。
+
+
+Memory Management:
+------------------
+
+- PID lock prevents duplicate instances
+- Watchdog monitors memory (1.5GB limit)
+- Recognizer rebuild every 500 requests
+- Prevents onnxruntime memory accumulation
