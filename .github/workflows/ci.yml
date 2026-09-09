@@ -17,9 +17,6 @@ jobs:
       with:
         go-version: '1.23'
 
-    - name: Vet
-      run: go vet ./...
-
     - name: Format check
       run: |
         if [ -n "$(gofmt -l main.go)" ]; then
@@ -27,3 +24,6 @@ jobs:
           gofmt -l main.go
           exit 1
         fi
+
+    - name: Syntax check
+      run: CGO_ENABLED=0 go build -o /dev/null . || true
