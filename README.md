@@ -23,7 +23,7 @@
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/rootzzh/vt-asr.git
+git clone https://github.com/coder-zzh/vt-asr.git
 cd vt-asr
 ```
 
@@ -196,7 +196,7 @@ A: 检查服务是否运行：`systemctl --user status vt-asr`
 
 ## License
 
-[MIT License](LICENSE) - Copyright (c) 2026 rootzzh
+[MIT License](LICENSE) - Copyright (c) 2026 coder-zzh
 
 ---
 

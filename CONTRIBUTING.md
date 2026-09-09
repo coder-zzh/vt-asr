@@ -13,7 +13,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/rootzzh/vt-asr.git
+git clone https://github.com/coder-zzh/vt-asr.git
 cd vt-asr
 
 # 安装依赖
@@ -49,7 +49,7 @@ make test
 
 ## 报告问题
 
-使用 [GitHub Issues](https://github.com/rootzzh/vt-asr/issues) 报告问题，请包含：
+使用 [GitHub Issues](https://github.com/coder-zzh/vt-asr/issues) 报告问题，请包含：
 - 系统信息（`uname -a`）
 - 错误日志
 - 复现步骤
