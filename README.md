@@ -11,7 +11,7 @@
 
 ## Features
 
-- **Go 实现** — 市面上唯一的 Go + CGo ASR server
+- **Go 实现** —  Go + CGo ASR server
 - **内存优化 58%** — 382MB vs Python 版 928MB
 - **中文优化** — SenseVoice 模型，比 Whisper 中文好
 - **生产级稳定性** — PID 锁、watchdog、内存重建
